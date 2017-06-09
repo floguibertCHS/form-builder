@@ -1,0 +1,17 @@
+hex: #367FC6
+
+body {
+  width: 100%;
+}
+
+#container {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  justify-content: center;
+}
+
+#container>label {
+  width: 100%;
+}
