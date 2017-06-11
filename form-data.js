@@ -34,6 +34,10 @@ var formData = [
     "icon": "",
     "options": [
       {
+        "label": "Select Language",
+        "value": "SEL"
+      },
+      {
         "label": "English",
         "value": "EN"
       },

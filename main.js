@@ -1,28 +1,29 @@
 
-var container = document.querySelector('#container');
-
-
-function buildLabel(labelData) {
-
-    console.log(labelData);
-    var labelElement = document.createElement('label');
-    labelElement.innerHTML = labelData;
-    container.appendChild(labelElement);
-
-}
+var container = document.querySelector('.fields');
+// function buildLabel(labelData) {
+//
+//     console.log(labelData);
+//     var labelElement = document.createElement('label');
+//     labelElement.innerHTML = labelData;
+//     container.appendChild(labelElement);
+//
+// }
 
 function buildSelect(selectData) {
 
-    buildLabel(selectData.label);
+    // buildLabel(selectData.label);
+
 
     var selectElement = document.createElement('select');
     //console.log(selectData.options);
+        selectElement.placeholder = selectData.label;
+        selectElement.id = selectData.id;
 
-    for(var index = 0; index < selectData.options.length; index ++) {
+    for(var i = 0; i < selectData.options.length; i ++) {
 
         var optionElement = document.createElement('option');
-        optionElement.label = selectData.options[index].label;
-        optionElement.value = selectData.options[index].value;
+        optionElement.label = selectData.options[i].label;
+        optionElement.value = selectData.options[i].value;
         selectElement.appendChild(optionElement);
 
     }
@@ -34,44 +35,42 @@ function buildSelect(selectData) {
 
 function buildTextArea(textAreaData) {
 
-    buildLabel(textAreaData.label);
-
-    var commentsContainer = document.createElement('div');
-    commentsContainer.classList.add('comments-container')
-
     var textAreaElement = document.createElement('textarea');
     textAreaElement.id = textAreaData.id;
 
-    commentsContainer.appendChild(textAreaElement);
-
-    container.appendChild(commentsContainer);
+    container.appendChild(textAreaElement);
 
 }
 function buildTextInput(textInputData) {
 
-    buildLabel(textInputData.label);
-
     var inputElement = document.createElement('input');
     inputElement.id = textInputData.id;
-    container.appendChild(inputElement);
-
+    inputElement.placeholder = textInputData.label;
+    inputElement.icon = textInputData.icon;
+    // inputElement.image = textInputData.icon;
+    var elementDiv = document.createElement('div');
+    elementDiv.classList.add(textInputData.icon);
+    elementDiv.content=textInputData.icon;
+    container.appendChild(elementDiv);
+    elementDiv.appendChild(inputElement);
+console.log(elementDiv.classList);
 
 }
 
-for(var index = 0; index < formData.length; index ++) {
+for(var i = 0; i < formData.length; i ++) {
 
-    if(formData[index].type == "select") {
+    if(formData[i].type == "select") {
 
-        buildSelect(formData[index]);
+        buildSelect(formData[i]);
 
-    }else if (formData[index].type == "textarea") {
+    }else if (formData[i].type == "textarea") {
 
-        buildTextArea(formData[index]);
+        buildTextArea(formData[i]);
 
     }
     else {
 
-        buildTextInput(formData[index]);
+        buildTextInput(formData[i]);
 
     }
 
