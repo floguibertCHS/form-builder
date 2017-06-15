@@ -25,10 +25,10 @@ console.log(formData[0]);
       inputElement.placeholder = formData[0].label;
       inputElement.id = formData[0].id;
 
-      var iElement = document.createElement('i');
-      divElement.appendChild(iElement);
-      iElement.innerHTML = [formData[0].icon];
-console.log(divElement);
+      var spanElement = document.createElement('span');
+      divElement.setAttribute('spanElement');
+      spanElement.innerHTML = ['class="fa'+' '+'formData[0].icon'];
+      console.log(divElement);
 
       // divElement.appendChild(inputElement);
 
